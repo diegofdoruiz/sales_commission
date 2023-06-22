@@ -1,0 +1,31 @@
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="sales_commission.concept_list">
+			<field name="name">sales_commission_object.tree</field>
+			<field name="model">sales_commission.concept</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="concept_sentence_id"/>
+					<field name="condition_ids"/>
+					<field name="reward_ids"/>
+					<field name="required"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="sales_commission.concept_action_window">
+			<field name="name">Conceptos</field>
+			<field name="res_model">sales_commission.concept</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem 
+            id="sales_commission_concepts2_menu"
+            parent="sales_commission_concepts_menu"
+            name="Conceptos"
+            action="sales_commission.concept_action_window"
+            sequence="20"/>
+
+	</data>
+</odoo>

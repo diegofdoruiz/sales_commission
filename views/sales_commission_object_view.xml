@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="sales_commission.object_list">
+	      <field name="name">Listado de objetos</field>
+	      <field name="model">sales_commission.object</field>
+	      <field name="arch" type="xml">
+	        <tree>
+	          <field name="name"/>
+	        </tree>
+	      </field>
+	    </record>
+
+		<record id="action_sales_commission_object" model="ir.actions.act_window">
+			<field name="name">Objetos</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sales_commission.object</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem 
+            id="sales_commission_objects_menu"
+            parent="sales_commission_concepts_menu"
+            name="Objetos"
+            action="action_sales_commission_object"
+            sequence="30"/>
+	</data>
+</odoo>

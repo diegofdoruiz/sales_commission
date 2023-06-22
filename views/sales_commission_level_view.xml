@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="sales_commission.level_list">
+			<field name="name">sales_commission_level.tree</field>
+			<field name="model">sales_commission.level</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="concepts_required_for_next_level"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="sales_commission.level_action_window">
+			<field name="name">Niveles</field>
+			<field name="res_model">sales_commission.level</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem 
+            id="sales_commission_levels_menu"
+            parent="sales_commission_menu_root"
+            name="Niveles"
+            action="sales_commission.level_action_window"
+            sequence="20"/>
+
+	</data>
+
+</odoo>

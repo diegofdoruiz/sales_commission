@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="sales_commission.condition_list">
+			<field name="name">sales_commission_condition.tree</field>
+			<field name="model">sales_commission.condition</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="object_id"/>
+					<field name="operator"/>
+					<field name="value_type"/>
+					<field name="value"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sales_commission.condition_form">
+			<field name="name">sales_commission_condition.form</field>
+			<field name="model">sales_commission.condition</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="object_id"/>
+							</group>
+							<group>
+								<field name="operator"/>
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="value_type"/>
+							</group>
+							<group>
+								<field name="value"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="sales_commission.condition_action_window">
+			<field name="name">Condiciones</field>
+			<field name="res_model">sales_commission.condition</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+	</data>
+
+</odoo>

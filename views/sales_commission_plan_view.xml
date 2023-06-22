@@ -1,0 +1,46 @@
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="sales_commission.plan_list">
+			<field name="name">sales_commission_plan.tree</field>
+			<field name="model">sales_commission.plan</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sales_commission.plan_form">
+			<field name="name">sales_commission_plan.form</field>
+			<field name="model">sales_commission.plan</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="company_id"/>
+							<field name="amount_base_type"/>
+							<field name="level_ids"/>
+							<field name="commissioner_ids"/>
+						</group>	
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="sales_commission.plan_action_window">
+			<field name="name">Planes</field>
+			<field name="res_model">sales_commission.plan</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem 
+            id="sales_commission_plans_menu"
+            parent="sales_commission_menu_root"
+            name="Planes"
+            action="sales_commission.plan_action_window"
+            sequence="10"/>
+
+	</data>
+</odoo>

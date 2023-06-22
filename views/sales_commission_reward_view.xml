@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="sales_commission.reward_list">
+			<field name="name">sales_commission_reward.tree</field>
+			<field name="model">sales_commission.reward</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="value_type"/>
+					<field name="value"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sales_commission.reward_form">
+			<field name="name">sales_commission_reward.form</field>
+			<field name="model">sales_commission.reward</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="value_type"/>
+							</group>
+							<group>
+								<field name="value"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="sales_commission.reward_action_window">
+			<field name="name">Recompensas</field>
+			<field name="res_model">sales_commission.reward</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+	</data>
+
+</odoo>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sales_commission.commissioner_list" model="ir.ui.view">
+        <field name="name">res.partner.form.commissioner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="priority" eval="18" />
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="commissioner" string="Comisionista" />
+            </field>
+            <xpath
+                expr="//page[@name='sales_purchases']//field[@name='user_id']"
+                position="after"
+            >
+                <field
+                    name="commissioner_ids"
+                    widget="many2many_tags"
+                    context="{'default_commissioner': True}"
+                />
+            </xpath>
+            <page name="sales_purchases" position="after">
+                <page
+                    name="commissioner_information"
+                    string="Infomación del comisionista"
+                    groups="commission.group_commission_user"
+                >
+                    <group>
+                        <group>
+                            <field
+                                name="periodicity"
+                                attrs="{'required': [('commissioner', '=', True)]}"
+                            />
+                        </group>
+                        <group
+                            colspan="2"
+                            string="Planes"
+                            
+                        >
+                            <field colspan="2" name="plan_ids" nolabel="1">
+                                
+                            </field>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+    <record id="res_partner_view_search_filter" model="ir.ui.view">
+        <field name="name">res.partner.select</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+                <filter name="inactive" position="replace">
+                    <filter
+                        string="Comisionistas"
+                        name="commissioner"
+                        domain="[('commissioner', '=', 1)]"
+                        help="Commissioner Partners"
+                    />
+                    <separator />
+                </filter>
+            
+        </field>
+    </record>
+    <record id="sales_commission.commissioner_form" model="ir.actions.act_window">
+        <field name="name">Comisionistas</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="context">{"search_default_commissioner": 1, 'default_commissioner': 1}</field>
+        <field name="search_view_id" ref="res_partner_view_search_filter" />
+    </record>
+
+    <menuitem
+        id="sales_commission_commissioner_menu"
+        parent="sales_commission_menu_root"
+        name="Comisionistas"
+        action="sales_commission.commissioner_form"
+        sequence="10"/>
+</odoo>

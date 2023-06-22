@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Root menu -->
+    <menuitem 
+        id="sales_commission_menu_root"
+        name="Comisiones"
+        sequence="30">
+
+        <menuitem 
+            id="sales_commission_concepts_menu"
+            name="Conceptos"
+            sequence="30"/>
+    </menuitem>
+</odoo>

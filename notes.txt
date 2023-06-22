@@ -1,0 +1,6 @@
+#Start odoo server
+python3 odoo-bin --addons-path=addons -d odoo
+
+
+#Model fields
+https://www.odoo.com/documentation/16.0/applications/productivity/studio/fields.html
