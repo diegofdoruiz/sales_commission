@@ -21,7 +21,7 @@
     'version': '0.67',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account'],
+    'depends': ['base','product','account','sale'],
 
     # always loaded
     'data': [
@@ -34,7 +34,10 @@
         'views/sales_commission_concept_sentence_view.xml',
         'views/sales_commission_object_view.xml',
         'views/sales_commission_condition_view.xml',
-        'views/sales_commission_reward_view.xml'
+        'views/sales_commission_reward_view.xml',
+        'views/sales_commission_plan_mixin_view.xml',
+        'views/product_template_view.xml',
+        'views/sale_order_view.xml'
         # 'views/views.xml'
         # 'views/templates.xml'
     ],

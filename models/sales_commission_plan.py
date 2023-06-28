@@ -14,6 +14,8 @@ class SalesCommissionPlan(models.Model):
 		required=True,
 		)
 
+	active = fields.Boolean(default=True)
+
 	amount_base_type = fields.Selection(
         selection=[
         	("gross_amount", "Valor bruto"), 
@@ -28,16 +30,6 @@ class SalesCommissionPlan(models.Model):
         inverse_name="plan_id",
         string="Niveles",
     )
-
-	commissioner_ids = fields.Many2many(
-		comodel_name="res.partner",
-		relation="sales_commission_partner_plan_rel",
-		column1="plan_id",
-		column2="partner_id",
-		domain=[("commissioner", "=", True)],
-		readonly=False,
-		string="Comisionistas"
-		)
 
 	def _default_company_id(self):
 		return self.env.company.id

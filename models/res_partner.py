@@ -34,13 +34,12 @@ class ResPartner(models.Model):
         default="monthly",
     )
 
-    plan_ids = fields.Many2many(
+    plan_id = fields.Many2one(
+        string="Plan",
         comodel_name="sales_commission.plan",
-        relation="sales_commission_partner_plan_rel",
-        column1="partner_id",
-        column2="plan_id",
-        readonly=False,
-        string="Planes"
+        help="This is the default plan used in the sales where this "
+        "commissioner is assigned. It can be changed on each operation if "
+        "needed.",
     )
 
     @api.model

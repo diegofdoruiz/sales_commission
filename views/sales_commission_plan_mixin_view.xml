@@ -1,0 +1,18 @@
+<odoo>
+    <record model="ir.ui.view" id="view_sales_commission_mixin_commissioner_only">
+        <field name="model">sales_commission.plan.mixin</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="plan_free" invisible="1" />
+                <field
+                    name="commissioner_ids"
+                    attrs="{'readonly': [('plan_free', '=', True)]}"
+                />
+                <footer class="oe_edit_only">
+                    <button string="Save" special="save" class="oe_highlight" />
+                    <button string="Discard" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

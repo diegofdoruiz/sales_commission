@@ -22,7 +22,6 @@
 							<field name="company_id"/>
 							<field name="amount_base_type"/>
 							<field name="level_ids"/>
-							<field name="commissioner_ids"/>
 						</group>	
 					</sheet>
 				</form>

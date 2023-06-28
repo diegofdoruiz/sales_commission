@@ -9,4 +9,7 @@ from . import sales_commission_concept_sentence
 from . import sales_commission_object
 from . import sales_commission_plan
 from . import res_partner
-from . import sales_commission_account
+from . import sales_commission_plan_mixin
+from . import product_template
+from . import sales_commission_account_move
+from . import sale_order
